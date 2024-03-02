@@ -1,0 +1,137 @@
+@font-face {
+
+    font-family: montmedium;   /*Can be any text*/
+    src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  }
+
+.mobileButton {
+    width: 270px;
+  }
+
+  .signIn {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid transparent;
+    margin-right: 24px;
+  }
+  
+  #signin {
+    border: none;
+    text-decoration: none;
+    background-color: Transparent;
+    color: #84889b;
+  }
+  .signOut {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 30px;
+    justify-content: center;
+    padding: 6px 32px 6px 32px;
+    /* padding: 15px; */
+  }
+
+  #signout {
+    border: none;
+    text-decoration: none;
+    background-color: Transparent;
+    color: #84889b;
+  }
+  .custom {
+    align-items: center;
+  }
+  .navbar-nav {
+    justify-content: flex-end;
+    width: 100%;
+    gap: 20px;
+    
+   
+  }
+
+  .for-white{
+    color: #FFF !important;
+  }
+
+  .navbar-nav li a{
+    color: #FFF !important;
+    font-family: montmedium !important;
+  }
+
+  /* .upr-logo {
+    width: 0px;
+
+  } */
+  .ff:hover{
+    color: #69397B !important;
+  }
+  .navbar-nav li a:hover{
+    /* color: #69397B !important; color: #69397B  */
+    /* color: white; */
+    transition: .1s ease-in-out;
+}
+.ii>a{
+    padding: 8px 20px;
+    border-radius: 20px;
+background: #69397B;
+}
+.ss:hover{
+    color: white !important;
+}
+  
+.navbar{
+    background: transparent !important;
+    /* background: linear-gradient(45deg, #030608,#d49c01 , #043a7c) !important; */
+    /* background-color: #0c94e2 !important; */
+    /* background: #1d1d1d !important; */
+}
+  @media only screen and (max-width: 600px) {
+
+    .ff:hover{
+      color: #020202 !important;
+      text-decoration: underline;
+    }
+
+    .signIn {
+        margin-bottom: 16px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    
+      .navbar-collapse {
+        transition: ease-in-out all .1s;
+        /* background: linear-gradient(90deg, #69397B 34.81%, #BFA170 100%) !important; */
+        background: linear-gradient(7deg, #69397B 34.81%, #1a101c 100%) !important;
+        position: absolute !important;
+        top: 80px;
+        left: 0px;
+        z-index: 1000;
+        /* background-color: white; */
+        height: calc(100vh - 60px);
+        overflow-y: hidden;
+      }
+    
+    
+      .mobileButton {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+        top: calc(80vh - 60px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10000;
+      }
+    
+      .navbar-nav {
+        margin-top: 40px;
+        padding-left: 20px;
+      }
+    
+      #navbarTogglerDemo02 {
+        width: 100%;
+        position: relative;
+      }
+    
+}  
