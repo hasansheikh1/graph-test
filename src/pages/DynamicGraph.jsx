@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -113,6 +113,11 @@ export default function DynamicGraph() {
   //     },
   //   },
   // };
+  const data1= data[indicator]?.metric
+useEffect(()=>{
+ 
+ console.log("prop data",data1)
+},[])
 
   return (
     <div id="graph-container" className="graph-container">
@@ -339,15 +344,21 @@ export default function DynamicGraph() {
         <div className="graph-panel">
           {charts.lineChart == true && (
             <Graph
-              line={charts.lineChart}
-              bar={charts.barChart}
-              scatter={charts.scatChart}
-              area={charts.areaChart}
+             data1={data1}
             />
           )}
           {charts.barChart == true && <BarChart />}
           {charts.scatChart == true && <ScatterChart />}
           {charts.areaChart == true && <AreaChart />}
+
+          {
+    (charts.lineChart||charts.barChart||charts.scatChart||charts.areaChart)==false&&
+            <div>
+              Please Select any Chart Type to View Graph..
+            </div>
+           
+          
+          }
         </div>
       </div>
     </div>
