@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Chart as ChartJS,
@@ -13,7 +13,8 @@ import {
 } from "chart.js";
 import { Bar, Line, Scatter } from "react-chartjs-2";
 
-ChartJS.register(
+export default function Graph({ data1,text }) {
+  ChartJS.register(
     CategoryScale,
     LinearScale,
     PointElement,
@@ -23,13 +24,14 @@ ChartJS.register(
     Legend
   );
 
-
-export default function Graph(props) {
-
-  // useEffect(()=>{
-
-  // },[])
-  const{data1}=props
+  
+  const [chartData, setChartData] = useState({})
+    
+  
+   
+  useEffect(() => {
+    setChartData(data1[0])
+  }, [data1]);
 
   const options = {
     responsive: true,
@@ -39,26 +41,28 @@ export default function Graph(props) {
       },
       title: {
         display: true,
-        text: "Chart.js Line Chart",
+        text: "Line Chart Visualization",
       },
     },
   };
-  
-  const labels = ["2012", "2013", "2014", "2015", "2016", "2017", "2018","2019","2020","2021","2022"];
-  
+
+ 
   const dataa = {
-      labels,
-      datasets:data1,
-      
-    };
+    // labels,
+    datasets: [
+      {
+        // fill: true,
+        label: text,
+        data: chartData,
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+      },
+    ],
+  };
+
   return (
     <>
-       
-            <Line options={options} data={dataa} />
-        
-        
-       
-      </>
-     )
-     ;
+      <Line options={options} data={dataa} />
+    </>
+  );
 }

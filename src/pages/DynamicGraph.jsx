@@ -78,6 +78,7 @@ export default function DynamicGraph() {
   const [age, setAge] = useState(10);
   const [indicator, setIndicator] = useState(1);
   const [metricValue, setMetricValue] = useState(1);
+  const [metricText,setMetricText]=useState("")
   const [lineChart, setLineChart] = useState();
 
   const [charts, setCharts] = useState({
@@ -113,12 +114,40 @@ export default function DynamicGraph() {
   //     },
   //   },
   // };
-  const data1= data[indicator]?.metric
-useEffect(()=>{
- 
- console.log("prop data",data1)
-},[])
+  // let data1;
+  // let finaldata=[];
+  const [finaldata,setFinalData]=useState([])
+  const [data1,setData1]=useState([])
 
+useEffect(()=>{
+  let data2=data[indicator]?.metric.map((elm,id)=>{
+    return(
+      elm?.data
+    )
+  })
+  let metricTexts=data[indicator]?.metric.map((text,id)=>{
+    return(
+     
+      text?.title
+ 
+    )
+   
+  })
+  setMetricText(metricTexts[metricValue])
+  console.log("titles",metricTexts[metricValue])
+  setData1(data2)
+  console.log("data1",data1)
+ console.log("prop data",data2[metricValue])
+//  finaldata.push(data1[metricValue])
+ setFinalData([data2[metricValue]])
+ 
+},[indicator,metricValue])
+
+console.log("final data",finaldata);
+
+useEffect(()=>{
+  console.log("final data",finaldata);
+},[])
   return (
     <div id="graph-container" className="graph-container">
       <div className="graph-wrapper">
@@ -344,12 +373,13 @@ useEffect(()=>{
         <div className="graph-panel">
           {charts.lineChart == true && (
             <Graph
-             data1={data1}
+            text={metricText}
+             data1={[...finaldata]}
             />
           )}
-          {charts.barChart == true && <BarChart />}
-          {charts.scatChart == true && <ScatterChart />}
-          {charts.areaChart == true && <AreaChart />}
+          {charts.barChart == true && <BarChart text={metricText} data1={[...finaldata]} />}
+          {charts.scatChart == true && <ScatterChart text={metricText} data1={[...finaldata]} />}
+          {charts.areaChart == true && <AreaChart text={metricText} data1={[...finaldata]} />}
 
           {
     (charts.lineChart||charts.barChart||charts.scatChart||charts.areaChart)==false&&
