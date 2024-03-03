@@ -4,7 +4,15 @@
 
     width: 100%;
     height: 100vh;
-    background-image: url('../images/graphg.png');
+    // background-image: url('../images/graphg.png');
+
+    background-image: 
+    /* First background image */
+    url('../images/graphg.png'),
+    /* Second background image */
+    url('../images/linear\ gray.png')
+    ;
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -14,10 +22,11 @@
 
     .graph-wrapper{
 
-        width: 100%;
+        width: 100%;    
         display: flex;
         justify-content:center;
         gap: 20px;
+        z-index: 1000;
        
     }
 
@@ -122,6 +131,25 @@
 }
 
 }
+
+.graph-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7)); /* Adjust opacity here */
+    // background: url('../images/gray.png');
+    // background: linear-gradient(90deg, #5E5F60 100%, #D9D9D9 0%);
+    // opacity: 0.2;
+    
+    background: linear-gradient(90deg, rgba(94, 95, 96, 0.4) 100%, rgba(217, 217, 217, 0.3) 0%);
+    
+    
+   
+}
+
 // // .graph-container::before {
 // //     content: "";
 // //     position: absolute;

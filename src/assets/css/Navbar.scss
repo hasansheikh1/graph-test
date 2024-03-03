@@ -4,8 +4,47 @@
     src: url("../fonts/Montserrat-Regular.ttf") format("truetype");
   }
 
+  .navbar{
+    z-index: 100;
+  }
 .mobileButton {
     width: 270px;
+  }
+
+  .loginbut{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .login-btnn{
+    border: 1px solid #FFFF;
+    padding: 7px 17px 7px 17px;
+    color: white;
+    border-radius: 20px;
+  }
+  .register-btnn{
+    border: 1px solid #FFFF;
+    color: white;
+    font-family: mont;
+    background:#B55E2E;
+    padding: 7px 17px 7px 17px;
+    border-radius: 20px;
+  }
+
+  .login-btnn:hover{
+    // font-family: mont;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    background: #B55E2E;
+  }
+  .register-btnn:hover{
+    // font-family: mont;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    background: none;
+    color: #B55E2E;
+    border: 1px solid #B55E2E;
   }
 
   .signIn {
@@ -41,7 +80,7 @@
     align-items: center;
   }
   .navbar-nav {
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     gap: 20px;
     
@@ -62,7 +101,7 @@
 
   } */
   .ff:hover{
-    color: #69397B !important;
+    color: #B55E2E !important;
   }
   .navbar-nav li a:hover{
     /* color: #69397B !important; color: #69397B  */
@@ -70,9 +109,9 @@
     transition: .1s ease-in-out;
 }
 .ii>a{
-    padding: 8px 20px;
+    padding: 8px 15px 8px 15px;
     border-radius: 20px;
-background: #69397B;
+background: #B55E2E;
 }
 .ss:hover{
     color: white !important;
